@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>女生节快乐</title>
+    <meta name="author" content="Zeming Yu" />
+    <link type="text/css"   href="css/impress-demo.css" rel="stylesheet" />
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src="js/garden.js"></script>
+	<script src="js/func.js"></script>
+	
+</head>
+
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+	<div id="title" class="step title" data-x="-2000" data-y="-1500" >
+    	<h2>这是送给孙文佳姐姐的女生节礼物!</h2>
+        <img src="img/1.gif">
+    </div>
+    <div id="slide1" class="step slide" data-x="-1000" data-y="-1500" >
+        <canvas id="garden" width="670" height="625"></canvas>
+        <div id="massage">
+        	我们已经在一起:<br>
+        	<div id="elapseClock"></div>
+        </div>
+		<script>
+			var offsetX = $("#slide1").width() / 2;
+			var offsetY = $("#slide1").height() / 2 - 55;
+			var work1=false;
+			setInterval(function(){
+				if (!work1&&$("#slide1").hasClass("active"))
+				{
+				work1=true;
+
+					var together = new Date();
+					together.setFullYear(2014, 2, 7);
+					together.setHours(0);
+					together.setMinutes(5);
+					together.setSeconds(35);
+					together.setMilliseconds(0);
+					startHeartAnimation()
+					setTimeout(function(){
+						timeElapse(together);
+						setInterval(function () {
+							timeElapse(together);
+						}, 100);
+						$("#massage").fadeIn("slow");
+					},3000);
+				}			
+			},300);
+
+			
+		</script>
+    </div>
+ 
+    <div id="slide2" class="step slide" data-x="0" data-y="-1500">
+		<img id="img2" src="img/2.jpg" class="nodisplay"> 
+        <script>
+		var work2=false;
+		setInterval(function(){
+				if (!work2&&$("#slide2").hasClass("active"))
+				{
+					work2=true;
+					setTimeout($("#img2").fadeIn(500),1500);
+				}			
+			},300);
+		</script>
+    </div>
+    <div id="slide3" class="step slide" data-x="0" data-y="-500">
+        <pre id="code" class="brush: java;">
+        </pre>
+        <img src="img/3.png" id="img3">
+        <script>
+		var work3=false;
+		setInterval(function(){
+				if (!work3&&$("#slide3").hasClass("active"))
+				{
+					work3=true;
+					type_text();
+				}		
+			},300);
+		</script>
+    </div>
+	<div id="slide4" class="step" data-x="0" data-y="0" data-scale="10">
+        <h1>Have a nice day!</h1>
+		<p>By Yu Zeming ^_^</p>
+    </div>
+</div>
+
+<div class="hint">
+    <p>按空格键继续</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="js/impress.js"></script>
+
+<script>impress().init();</script>
+
+</body>
+</html>
+
